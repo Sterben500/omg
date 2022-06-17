@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="lol">
+    <center>
+        <section class="tete">
+            <h3>Add App has service</h3>
+        </section>
+    </center>
+    
+        </br>
+        <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.app_id|as_crispy_field }}
+                    </div><br>
+
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.services_id|as_crispy_field }}
+                    </div><br>
+                </div>
+
+            <br></br>
+            <button type="submit" class="btn btn-success">Add app has service</button>
+        </form>
+</div>
+    {% endblock %}

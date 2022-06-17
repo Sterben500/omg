@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="desc">
+    <h2 class="des">SERVER DESCRIPTION</h2>
+    <br></br>
+    <ul>
+    {% for server in show_server %}
+
+        <div class="card">
+          <div class="card-header bg-danger p-2 text-white bg-opacity-50">
+            {{ server }}
+          </div>
+          <div class="card-body">
+            <ul>
+                <li><strong>Name:</strong> {{server.name}}</li>
+                <li><strong>Server type:</strong> {{server.type_of_server}}</li>
+                <li><strong>Number of processor:</strong> {{server.processor_number}}</li>
+                <li><strong>Memory capacity:</strong> {server.memory_capacity}}</li>
+                <li><strong>Storage capacity:</strong> {{server.storage_capacity}}</li>
+                <p> </p>
+            </ul>
+
+          </div>
+        </div>
+
+        <br></br>
+
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

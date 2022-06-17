@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if searched %}
+
+<div class="search-title" >
+                <h2>You searched for: {{ searched }}</h2>
+</div>
+</br>
+
+<div class="article-table">
+    <table class="table table-light table-striped table-bordered">
+      <thead>
+        <tr class="table-dark">
+          <th class="table-top" scope="col">Server Name</th>
+          <th class="table-top" scope="col">Type</th>
+          <th class="table-top" scope="col">Processor Number</th>
+          <th class="table-top" scope="col">Memory Capacity</th>
+          <th class="table-top" scope="col">Storage Capacity</th>
+          <th class="table-top text-end" scope="col"></th>
+        </tr>
+      </thead>
+      {% for search in server %}
+      <tr>
+        <td class="table-bot">{{ search.name}}</a></td>
+        <td class="table-bot">{{ search.type_of_server }}</td>
+        <td class="table-bot">{{ search.processor_number }}</td>
+        <td class="table-bot">{{ search.memory_capacity }}</td>
+        <td class="table-bot">{{ search.storage_capacity }}</td>
+        <td class="table-top text-end">
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <a href="{% url 'crud_main:update_server' list.server_id %}" type="button" class="btn btn-outline-primary btn-sm"> Update </a>
+            <a href="{% url 'crud_main:delete_servers' list.server_id %}" type="button" class="btn btn-danger btn-sm"> Delete </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+</div>
+        {% endfor %}
+
+        {% else %}
+            <section class="search-title-2">
+                <h2> T'as oublié de chercher une oeuvre</h2>
+            </section>
+        {% endif %}
+{% endblock %}

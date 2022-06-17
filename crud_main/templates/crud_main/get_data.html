@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="titre">
+<p class="h1">SERVER ADMINISTRATION</p>
+    <nav>
+        <a  class="custom-btn btn-13" href="{% url 'crud_main:create_server' %}" role="button"> Add servers</a>
+        <a  class="custom-btn btn-16" href="{% url 'crud_main:users' %}" role="button"> Add users</a>
+        <a  class="custom-btn btn-13" href="{% url 'crud_main:applications' %}" role="button"> Add applications </a>
+        <a  class="custom-btn btn-16" href="{% url 'crud_main:servers' %}" role="button"> Add services</a>
+        <a  class="custom-btn btn-13" href="{% url 'crud_main:overall' %}" role="button"> Add overvall</a>
+    </nav>
+</div>
+
+
+{% endblock %}

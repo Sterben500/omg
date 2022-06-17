@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="lol">
+    <center>
+        <section class="tete">
+            <h3>Add Server</h3>
+        </section>
+    </center>
+    
+        </br>
+        <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.name|as_crispy_field }}
+                    </div><br>
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.type_of_server|as_crispy_field }}
+                        <a href="{% url 'crud_main:type_of_server' %}">Create Type Of Server</a>
+                    </div>
+                </div><br>
+    
+                <div class="form-row">
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.processor_number|as_crispy_field }}
+                    </div><br>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.memory_capacity|as_crispy_field }}
+                    </div><br>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group col-sm-4 col-md-10">
+                        {{ form.storage_capacity|as_crispy_field }}
+                    </div>
+                </div>
+                <br>
+            <button type="submit" class="btn btn-success">Add Server</button>
+            
+        </form>
+    
+    </div>
+
+    {% endblock %}

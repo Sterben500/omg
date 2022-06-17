@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="lol">
+    <center>
+        <section class="tete">
+            <h3> Update the application {{application}} </h3>
+        </section>
+    </center>
+
+    </br>
+
+    <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-sm-6 col-md-10">
+                    {{ form.name_app|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6 col-md-10">
+                    {{ form.logo_app|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6 col-md-10">
+                    {{ form.server|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6 col-md-10">
+                    {{ form.user|as_crispy_field }}
+                </div>
+            </div>
+
+
+        <br></br>
+        <input class="btn btn-success" type="submit" value="Update the server">
+        <a class="btn btn-outline-danger" href="{% url 'crud_main:list' %}">Annuler</a>
+
+    </form>
+
+</div>
+
+{% endblock %}

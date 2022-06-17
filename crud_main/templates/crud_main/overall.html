@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="lol">
+        <center>
+            <section class="tete">
+                <h3>Add Overall</h3>
+            </section>
+        </center>
+        
+            </br>
+            <form method="post">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-sm-4 col-md-10">
+                            {{ form.number_of_server_used|as_crispy_field }}
+                        </div><br>
+                        <div class="form-group col-sm-4 col-md-10">
+                            {{ form.total_storage_used|as_crispy_field }}
+                        </div><br>
+                    </div>
+                <br></br>
+                <button type="submit" class="btn btn-success">Add Overall</button>
+            </form>
+        
+        </div>
+    {% endblock %}

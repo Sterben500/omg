@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="lol">
+        <center>
+            <section class="tete">
+                <h3>Add Users</h3>
+            </section>
+        </center>
+        
+            </br>
+            <form method="post">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-sm-4 col-md-10">
+                            {{ form.user_name|as_crispy_field }}
+                        </div><br>
+                        <div class="form-group col-sm-4 col-md-10">
+                            {{ form.sur_name|as_crispy_field }}
+                        </div><br>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-group col-sm-4 col-md-10">
+                            {{ form.email|as_crispy_field }}
+                        </div>
+                    </div>
+                <br></br>
+                <button type="submit" class="btn btn-success">Add User</button>
+            </form>
+        
+        </div>
+    
+    {% endblock %}

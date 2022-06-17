@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br></br>
+
+<div class="toutout">
+  <center><h2 class="tlist">LIST OF ALL COMPONENTS</h2></center>
+  <div class="tout">
+
+    <center><h3 class="stlist">Server list</h3></center>
+
+    <table class="table table-dark table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Server</th>
+          <th scope="col" class="text-center">Type</th>
+          <th class="text-end"><a href="{% url 'crud_main:create_server' %}" type="button" class="btn btn-light">Add server</a></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+            {% for list in server %}
+          <td class="text-center">{{list.name}}</td>
+          <td class="text-center">{{list.type_of_server}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:show_server' list.server_id %}" type="button" class="btn btn-info btn-sm">Description </a>
+            <a href="{% url 'crud_main:update_server' list.server_id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_servers' list.server_id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+        </td> 
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <div class="tout">
+
+    <center><h3 class="stlist">Server type list</h3></center>
+
+    <table class="table table-success table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Server type</th>
+          <th scope="col" class="text-center">Description</th>
+          <th class="text-end"><a href="{% url 'crud_main:type_of_server' %}" type="button" class="btn btn-light">Add server type</a></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+        {% for list in type_of_server %}
+          <td class="text-center">{{list.server_type}}</td>
+          <td class="text-center">{{list.description}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:update_type_of_server' list.type_server_id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_type_of_server' list.type_server_id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="tout">
+
+    <center><h3 class="stlist">Users list</h3></center>
+
+    <table class="table table-dark table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Users</th>
+          <th scope="col" class="text-center">Email</th>
+          <th class="text-end"><a href="{% url 'crud_main:users' %}" type="button" class="btn btn-light">Add users</a></th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+        {% for list in users %}
+          <td class="text-center">{{list.user_name}}</td>
+          <td class="text-center">{{list.email}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:update_users' list.user_id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_users' list.user_id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+
+  <div class="tout">
+
+    <center><h3 class="stlist">Services list</h3></center>
+
+    <table class="table table-success table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Services</th>
+          <th scope="col" class="text-center">Date of launch</th>
+          <th class="text-end"><a href="{% url 'crud_main:servers' %}" type="button" class="btn btn-light">Add services</a></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          {% for list in servers %}
+          <td class="text-center">{{list.name_of_service}}</td>
+          <td class="text-center">{{list.date_of_launch}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:update_servers' list.service_id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_servers' list.service_id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+          </td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="tout">
+
+    <center><h3 class="stlist">Application list</h3></center>
+
+    <table class="table table-dark table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Name app</th>
+          <th scope="col" class="text-center">Server</th>
+          <th class="text-end"><a href="{% url 'crud_main:applications' %}" type="button" class="btn btn-light">Add application</a></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+            {% for list in applications %}
+          <td class="text-center">{{list.name_app}}</td>
+          <td class="text-center">{{list.server}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:update_applications' list.app_id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_applications' list.app_id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="tout">
+
+    <center><h3 class="stlist">App has services list</h3></center>
+
+    <table class="table table-success table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">App id</th>
+          <th scope="col" class="text-center">Services id</th>
+          <th class="text-end"><a href="{% url 'crud_main:apphasservices' %}" type="button" class="btn btn-light">Add app has services</a></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+            {% for list in applicationshasservices %}
+          <td class="text-center">{{list.app_id}}</td>
+          <td class="text-center">{{list.services_id}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:update_app_has_services' list.app_id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_app_has_services' list.app_id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+        </td> 
+        </tr>
+
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+
+  <div class="tout">
+    
+    <center><h3 class="stlist">Overall list</h3></center>
+
+    <table class="table table-dark table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Number server used</th>
+          <th scope="col" class="text-center">Total storage used</th>
+          <th class="text-end"><a href="{% url 'crud_main:overall' %}" type="button" class="btn btn-light">Add overall</a></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+            {% for list in overall %}
+          <td class="text-center">{{list.number_of_server_used}}</td>
+          <td class="text-center">{{list.total_storage_used}}</td> 
+          <td class="text-end">
+            <a href="{% url 'crud_main:update_overall' list.id %}" type="button" class="btn btn-outline-primary btn-sm">Update</a>
+            <a href="{% url 'crud_main:delete_overall' list.id %}" type="button" class="btn btn-danger btn-sm">Delete</a>
+        </td> 
+        </tr>
+
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+<br></br>
+<br></br>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Are you Want to delete "{{object}}"</p>
+        <a href="{% url 'crud_main:dataView' %}">Go Back
+        </a>
+        <input type="submit" value="confirm" />
+    </form>
+    {% endblock %}
